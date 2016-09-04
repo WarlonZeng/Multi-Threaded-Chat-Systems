@@ -57,7 +57,8 @@ public class chat_client_4 {
     static PrintStream ps;
     
     static public void main(String[] args) {
-        serverName = JOptionPane.showInputDialog("server ip or name: ");
+        //serverName = JOptionPane.showInputDialog("server ip or name: ");
+        serverName = ec2-54-161-219-126.compute-1.amazonaws.com
         username = JOptionPane.showInputDialog("new username: ");
         makeInterface();
         try{
