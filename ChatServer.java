@@ -12,7 +12,7 @@ import java.net.*;
 /**
  *
  * @author Warlon
- * using pretty much the socket server from class
+ *
  */
 
 class ProcessClient extends Thread{
@@ -50,7 +50,7 @@ public class ChatServer {
     
     public static void main(String[] args) {
         try{
-            ServerSocket ss = new ServerSocket(5190);
+            ServerSocket ss = new ServerSocket(50000);
             while(true){
                 Socket sock = ss.accept();
                 new ProcessClient(sock).start();

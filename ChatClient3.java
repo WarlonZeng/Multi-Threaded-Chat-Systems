@@ -55,7 +55,7 @@ public class ChatClient3 {
         username = JOptionPane.showInputDialog("new username: ");
         makeInterface();
         try{
-            Socket s = new Socket(serverName, 5190);
+            Socket s = new Socket(serverName, 50000);
             Scanner sin = new Scanner(s.getInputStream());
             ps = new PrintStream(s.getOutputStream());
             ps.print(username + "\r\n");
