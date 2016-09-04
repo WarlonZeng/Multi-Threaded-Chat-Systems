@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package chatclient2;
+//package chat_client_4; //do not need for standalones
 
 import java.util.*;
 import java.io.*;
@@ -16,7 +16,7 @@ import javax.swing.*;
  *
  * @author Warlon
  */
-public class ChatClient2 {
+public class chat_client_4 {
 
     /**
      * @param args the command line arguments
@@ -28,13 +28,14 @@ public class ChatClient2 {
     static JButton sendButton = new JButton("Send");
     static JPanel jp = new JPanel();
     static String username;
-    static String serverName; // I USED localhost AND IT WORKS
+    static String serverName; //
     
     static public void makeInterface() { // make the interface first...
         frame.setSize(500, 400);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         sendButton.addActionListener(new ButtonPress());
+        textField.addActionListener(new ButtonPress());
         textArea.setEditable(false);
         JScrollPane areaScrollPane = new JScrollPane(textArea);
         areaScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -43,6 +44,11 @@ public class ChatClient2 {
         jp.add(textField);
         jp.add(sendButton); 
         frame.add(jp);
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowOpened( WindowEvent e ){
+                textField.requestFocus();
+            }
+        }); 
         frame.setVisible(true);
     }
     
@@ -65,7 +71,7 @@ public class ChatClient2 {
             }
         }
         catch(IOException e){
-            System.out.println("Connection to google failed. :(");
+            System.out.println("Connection to server failed. :(");
         }
     }
     
@@ -73,6 +79,7 @@ public class ChatClient2 {
         public void actionPerformed(ActionEvent ae){ // give action event to listener
             message = textField.getText();
             ps.print(message + "\r\n");
+            //textArea.append(message + "\n");
             textField.setText("");
         }
     }
