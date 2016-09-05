@@ -8,10 +8,18 @@ To RUN: You will need to compile them on your instance...
 
 On the command line:
 
+for SERVER DEPLOYMENT
 git clone https://github.com/WarlonZeng/multi_threaded_chat_system.git
 cd multi_threaded_chat_system
 javac chat_server.java
-java chat_server
+nohup java chat_server or nohup java -cp . chat_server
+
+for CLIENT CONNECT
+download any of my chat_client_#.java or just git clone https://github.com/WarlonZeng/multi_threaded_chat_system.git
+javac chat_server.java
+java chat_server or java -cp . chat_server
+can do nohup too.
+
 
 Server listens at port 50,000
 There are client softwares to connect to server. By default the host is ec2-54-161-219-126.compute-1.amazonaws.com
