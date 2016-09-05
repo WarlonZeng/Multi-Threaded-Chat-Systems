@@ -11,6 +11,7 @@ import java.net.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.text.DefaultCaret;
 
 /**
  *
@@ -37,6 +38,8 @@ public class chat_client_2 {
         sendButton.addActionListener(new ButtonPress());
         textField.addActionListener(new ButtonPress());
         textArea.setEditable(false);
+        DefaultCaret caret = (DefaultCaret) textArea.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         JScrollPane areaScrollPane = new JScrollPane(textArea);
         areaScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         areaScrollPane.setPreferredSize(new Dimension(450, 300));    
@@ -48,7 +51,8 @@ public class chat_client_2 {
             public void windowOpened( WindowEvent e ){
                 textField.requestFocus();
             }
-        }); 
+        });
+        
         frame.setVisible(true);
     }
     
@@ -58,7 +62,8 @@ public class chat_client_2 {
     
     static public void main(String[] args) {
         //serverName = JOptionPane.showInputDialog("server ip or name: ");
-        serverName = "ec2-54-161-219-126.compute-1.amazonaws.com";
+        serverName = "ec2-54-161-219-126.compute-1.amazonaws.com"; 
+        //serverName = "localhost";
         username = JOptionPane.showInputDialog("new username: ");
         makeInterface();
         try{
@@ -82,6 +87,8 @@ public class chat_client_2 {
             ps.print(message + "\r\n");
             //textArea.append(message + "\n");
             textField.setText("");
+            if ("EXIT".equals(message))
+                System.exit(0);
         }
     }
 }
