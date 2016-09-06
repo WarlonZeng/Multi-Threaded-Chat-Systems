@@ -1,3 +1,5 @@
+For the Python version: https://github.com/WarlonZeng/multi_threaded_chat_system_python
+
 tested with 3 chat clients, all 3 connected simultaneously
 all received same message simultaneously as well
 
