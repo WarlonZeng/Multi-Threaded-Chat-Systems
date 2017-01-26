@@ -62,7 +62,7 @@ public class chat_client_1 {
     
     static public void main(String[] args) {
         //serverName = JOptionPane.showInputDialog("server ip or name: ");
-        serverName = "ec2-54-161-219-126.compute-1.amazonaws.com"; 
+        serverName = "localhost"; 
         //serverName = "localhost";
         username = JOptionPane.showInputDialog("new username: ");
         makeInterface();
